@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "823032931479",
+    "project_id": "ect-project-421d1",
+    "storage_bucket": "ect-project-421d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823032931479:android:129a3c6fa06d8bd754f5d2",
+        "android_client_info": {
+          "package_name": "com.example.ect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmJiNyBCSMaH2o6nTlCfaegrcMafUg70M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
