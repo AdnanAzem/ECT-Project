@@ -2,6 +2,59 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:ect/Model/globals.dart' as globals;
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+void saveUser() async {
+  await FirebaseFirestore.instance.collection('users').add({
+    'Name': globals.name,
+    'ID': globals.iD,
+    'Age': globals.age,
+    'Gender': globals.gender,
+  });
+}
+
+void saveResults1() async {
+  String temp = "";
+  List<Map<String, dynamic>> answers = [];
+  for (int i = 0; i < (globals.roundSides).length; i++) {
+    if (globals.roundSides[i] == 0) {
+      temp = "left";
+    } else {
+      temp = "right";
+    }
+    answers.add({
+      "round": i + 1,
+      "side": temp,
+      "shape_display_time": globals.roundsTimes[i],
+      "correctness": globals.roundCorrectness[i],
+    });
+    // Map<String, dynamic> toJson() =>
+  }
+
+  await FirebaseFirestore.instance.collection('first_exam').add({
+    'ID': globals.iD,
+    'Total_correct_answers': globals.score1,
+    'Answers': answers,
+  });
+}
+
+void saveResults2() async {
+  List<Map<String, dynamic>> answers = [];
+  for (int i = 0; i < (globals.roundsBool).length; i++) {
+    answers.add({
+      "round": i + 1,
+      "time_until_choose_the_object": (globals.rountimes[i]).toString(),
+      "correctness": globals.roundsBool[i],
+      "side_clicked": 'r',
+    });
+  }
+
+  await FirebaseFirestore.instance.collection('second_exam').add({
+    'ID': globals.iD,
+    'Total_correct_answers': globals.score2,
+    'answers': answers,
+  });
+}
 
 Future<String> createFolder() async {
   String temp =

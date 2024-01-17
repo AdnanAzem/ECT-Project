@@ -1,3 +1,4 @@
+import 'package:ect/Controller/results.dart';
 import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 import 'package:ect/View/first_exam/first_exam_explanation_screen.dart';
@@ -232,10 +233,11 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 20),
                       SizedBox(
                         child: TextButton(
-                          onPressed: () {
+                          onPressed: () async {
                             final form = formKey.currentState!;
                             final isValid = form.validate();
                             if (isValid) {
+                              saveUser();
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

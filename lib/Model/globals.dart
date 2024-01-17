@@ -4,7 +4,12 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
+// firebase
+final firebase = FirebaseAuth.instance;
+
+// info
 String name = '';
 String iD = '';
 String age = '';
