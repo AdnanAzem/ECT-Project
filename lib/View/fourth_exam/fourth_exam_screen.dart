@@ -1,17 +1,17 @@
-import 'package:ect/View/third_exam/end_third_test_screen.dart';
+import 'package:ect/View/fourth_exam/end_fourth_test_screen.dart';
 import 'package:flutter/material.dart';
 
-class FindingA extends StatefulWidget {
-  const FindingA({super.key});
+class NumberComparison extends StatefulWidget {
+  const NumberComparison({super.key});
 
   @override
-  State<FindingA> createState() => _FindingAState();
+  State<NumberComparison> createState() => _NumberComparisonState();
 }
 
-class _FindingAState extends State<FindingA> {
+class _NumberComparisonState extends State<NumberComparison> {
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[600]?.withOpacity(0.5),
       ),
@@ -25,7 +25,7 @@ class _FindingAState extends State<FindingA> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const EndOfThirdTest()),
+              MaterialPageRoute(builder: (context) => const EndOfFourthTest()),
             );
           },
           child: Text("next"),

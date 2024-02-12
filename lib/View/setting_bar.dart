@@ -223,54 +223,54 @@ class _SettingBar extends State<SettingBar> {
               ),
             ],
           ),
-          ExpansionTile(
-            leading: const Icon(Icons.looks_3_rounded),
-            iconColor: Colors.grey,
-            textColor: Colors.grey,
-            title: const Text('Third Exam',
-                style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Alkatra')),
-            children: [
-              const ListTile(
-                title: Text(
-                  "Select the number of games before ending the test:",
-                  style: TextStyle(
-                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    child: DropdownButton<int>(
-                      value: globals.drop6,
-                      items: <int>[1, 2, 3, 4, 5].map((int value6) {
-                        return DropdownMenuItem<int>(
-                          value: value6,
-                          child: Text(
-                            value6.toString(),
-                            style: const TextStyle(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontFamily: 'Alkatra'),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (value6) {
-                        setState(() {
-                          globals.drop6 = value6!;
-                        });
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          // ExpansionTile(
+          //   leading: const Icon(Icons.looks_3_rounded),
+          //   iconColor: Colors.grey,
+          //   textColor: Colors.grey,
+          //   title: const Text('Third Exam',
+          //       style: TextStyle(
+          //           fontSize: 17,
+          //           color: Colors.black,
+          //           fontWeight: FontWeight.bold,
+          //           fontFamily: 'Alkatra')),
+          //   children: [
+          //     const ListTile(
+          //       title: Text(
+          //         "Select the number of games before ending the test:",
+          //         style: TextStyle(
+          //             fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+          //       ),
+          //     ),
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       crossAxisAlignment: CrossAxisAlignment.center,
+          //       children: [
+          //         SizedBox(
+          //           child: DropdownButton<int>(
+          //             value: globals.drop6,
+          //             items: <int>[1, 2, 3, 4, 5].map((int value6) {
+          //               return DropdownMenuItem<int>(
+          //                 value: value6,
+          //                 child: Text(
+          //                   value6.toString(),
+          //                   style: const TextStyle(
+          //                       fontSize: 14,
+          //                       color: Colors.black,
+          //                       fontFamily: 'Alkatra'),
+          //                 ),
+          //               );
+          //             }).toList(),
+          //             onChanged: (value6) {
+          //               setState(() {
+          //                 globals.drop6 = value6!;
+          //               });
+          //             },
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ],
+          // ),
           const SizedBox(
             height: 30,
           ),

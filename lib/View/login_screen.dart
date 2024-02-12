@@ -1,6 +1,5 @@
-import 'package:ect/Controller/results.dart';
+
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
 import 'package:ect/View/first_exam/first_exam_explanation_screen.dart';
 
 import 'package:ect/View/setting_bar.dart';
@@ -237,7 +236,7 @@ class _LoginPageState extends State<LoginPage> {
                             final form = formKey.currentState!;
                             final isValid = form.validate();
                             if (isValid) {
-                              saveUser();
+                              // saveUser();
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

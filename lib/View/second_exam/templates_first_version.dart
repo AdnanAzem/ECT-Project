@@ -11,7 +11,6 @@ class Templates1 {
       child: TextButton(
         onPressed: () {
           if (card[0] == globals.icon) {
-            globals.leftOrRight = 1;
             updateValuesDouble1();
           } else {
             updateValuesDouble2();

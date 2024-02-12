@@ -1,4 +1,4 @@
-import 'package:ect/View/fourth_exam/fourth_exam_explanation_screen.dart';
+import 'package:ect/View/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,14 +16,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class EndOfThirdTest extends StatefulWidget {
-  const EndOfThirdTest({super.key});
+class EndOfFourthTest extends StatefulWidget {
+  const EndOfFourthTest({super.key});
 
   @override
-  State<EndOfThirdTest> createState() => _EndOfThirdTest();
+  State<EndOfFourthTest> createState() => _EndOfFourthTest();
 }
 
-class _EndOfThirdTest extends State<EndOfThirdTest> {
+class _EndOfFourthTest extends State<EndOfFourthTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +42,7 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
                 const SizedBox(height: 300),
                 const Center(
                   child: Text(
-                    "You finished the third part",
+                    "You finished the last part",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
@@ -54,15 +54,20 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
                 const SizedBox(height: 80),
                 TextButton(
                   onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()),
+                    );
                     // createFolder();
                     // createInfo();
                     // createFirstExam();
                     // createSecondExam();
-                    // createThirdExam();
+                    // createFourthExam();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const FourthExplanationPage()),
+                          builder: (context) => const LoginPage()),
                     );
                   },
                   child: Container(
@@ -84,7 +89,7 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
                     ),
                     child: const Center(
                       child: Text(
-                        'next part',
+                        'End test',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.black,

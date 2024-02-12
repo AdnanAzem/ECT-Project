@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ect/View/second_exam/second_exam_explanation_screen.dart';
-import 'package:ect/Controller/results.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -55,7 +55,7 @@ class _EndOfTest extends State<EndOfTest> {
                 const SizedBox(height: 80),
                 TextButton(
                   onPressed: () async {
-                    saveResults1();
+                    // saveResults1();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

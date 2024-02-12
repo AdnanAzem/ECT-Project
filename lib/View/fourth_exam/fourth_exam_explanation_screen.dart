@@ -1,14 +1,14 @@
-import 'package:ect/View/third_exam/third_exam_screen.dart';
+import 'package:ect/View/Fourth_exam/fourth_exam_screen.dart';
 import 'package:flutter/material.dart';
 
-class ThirdExplanationPage extends StatefulWidget {
-  const ThirdExplanationPage({super.key});
+class FourthExplanationPage extends StatefulWidget {
+  const FourthExplanationPage({super.key});
 
   @override
-  State<ThirdExplanationPage> createState() => _ThirdExplanationPage();
+  State<FourthExplanationPage> createState() => _FourthExplanationPage();
 }
 
-class _ThirdExplanationPage extends State<ThirdExplanationPage> {
+class _FourthExplanationPage extends State<FourthExplanationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class _ThirdExplanationPage extends State<ThirdExplanationPage> {
                   width: 50,
                 ),
                 const Text(
-                  "You are in the third exam explation.",
+                  "You are in the fourth exam explation.",
                   style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: 26,
@@ -49,13 +49,9 @@ class _ThirdExplanationPage extends State<ThirdExplanationPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: ((context) => const FindingA()),
+                    builder: ((context) => const NumberComparison()),
                   ),
                 );
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const LBulb()),
-                // );
               },
               child: Container(
                 height: 50,
