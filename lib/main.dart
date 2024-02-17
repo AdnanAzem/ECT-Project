@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: LoginPage(),
-      home: ThirdExplanationPage(),
+      home: LoginPage(),
+      // home: ThirdExplanationPage(),
     );
   }
 }

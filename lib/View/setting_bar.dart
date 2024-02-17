@@ -324,8 +324,8 @@ class _SettingBar extends State<SettingBar> {
                           value: value5,
                           child: Text(
                             value5 == 2
-                                ? '$value5 (3-5 letters)'
-                                : '$value5 (7-9 letters)',
+                                ? '$value5 (7-9 letters)'
+                                : '$value5 (3-5 letters)',
                             style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
@@ -407,6 +407,8 @@ class _SettingBar extends State<SettingBar> {
                 globals.numOfWrongAnswers2 = globals.drop4;
                 globals.version = globals.drop5;
                 globals.gameNumber = globals.drop6;
+                globals.numOfWrongAnswers3 = globals.drop7;
+                globals.versionFA = globals.drop8;
                 Scaffold.of(context).closeDrawer();
               },
               child: Container(

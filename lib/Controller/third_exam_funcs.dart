@@ -109,7 +109,7 @@ String generateWordWithoutA(int length) {
   return word;
 }
 
-List<FixedPosition> chooseRandomTemplateFA1(List<String> words) {
+List<FixedPosition> chooseRandomTemplateFA1( ) {
   // List<int> temp = [
   //   1,
   //   2,
@@ -119,12 +119,13 @@ List<FixedPosition> chooseRandomTemplateFA1(List<String> words) {
   // ];
   // final randomTemplate = Random();
   List<FixedPosition> tempA = [];
-  tempA = TemplatesFA1.firstTemplateFA(words);
+  tempA = TemplatesFA1.firstTemplateFA();
   List<FixedPosition> ans = tempA;
   return ans;
 }
 
 
-List<FixedPosition> chooseTemplate(int x, words) {
-  return (chooseRandomTemplateFA1(words));
+List<FixedPosition> chooseTemplate(int x) {
+
+  return (chooseRandomTemplateFA1());
 }

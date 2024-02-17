@@ -1,8 +1,12 @@
+import 'package:ect/Controller/third_exam_funcs.dart';
 import 'package:ect/Widgets/fixed_position.dart';
 
 class TemplatesFA1 {
   // static String wordGenerate = '';
-  static List<FixedPosition> firstTemplateFA(List<String> word) {
+  static List<FixedPosition> firstTemplateFA() {
+    List<String> word = [];
+    word = generateWordsWithoutA(14) + generateWordsWithA(1);
+    word.shuffle();
     List<FixedPosition> ans = [];
     FixedPosition a = FixedPosition(
       word: word[0],

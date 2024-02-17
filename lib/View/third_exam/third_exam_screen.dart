@@ -13,10 +13,7 @@ class FindingA extends StatefulWidget {
 class _FindingAState extends State<FindingA> {
   @override
   Widget build(BuildContext context) {
-    List<String> words = [];
-    words = generateWordsWithoutA(14) + generateWordsWithA(1);
-    words.shuffle();
-    List<FixedPosition> templates = chooseTemplate(globals.versionFA, words);
+    List<FixedPosition> templates = chooseTemplate(globals.versionFA);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[600]?.withOpacity(0.5),
