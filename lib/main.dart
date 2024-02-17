@@ -1,6 +1,7 @@
+import 'package:ect/View/fourth_exam/end_fourth_test_screen.dart';
+import 'package:ect/View/third_exam/third_exam_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:temp_proj/View/third_exam/third_exam_screen.dart';
 import 'View/login_screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -21,10 +22,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-      // home: ThirdExam(),
+      // home: LoginPage(),
+      home: FindingA(),
+      // home: EndOfFourthTest(),
     );
   }
+}
+
+class EndOfFourthTes {
+  const EndOfFourthTes();
 }
 
 class Homepage extends StatefulWidget {
