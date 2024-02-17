@@ -223,6 +223,127 @@ class _SettingBar extends State<SettingBar> {
               ),
             ],
           ),
+          ExpansionTile(
+            leading: const Icon(Icons.looks_two_rounded),
+            iconColor: Colors.grey,
+            textColor: Colors.grey,
+            title: const Text('Third Exam',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra')),
+            children: [
+              const ListTile(
+                title: Text(
+                  "Select the number of games before ending the test (correct answers):",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: DropdownButton<int>(
+                      value: globals.drop6,
+                      items: <int>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+                          .map((int value3) {
+                        return DropdownMenuItem<int>(
+                          value: value3,
+                          child: Text(
+                            value3.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value3) {
+                        setState(() {
+                          globals.drop6 = value3!;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const ListTile(
+                title: Text(
+                  "Select the number of wrong answers before ending the test:",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: DropdownButton<int>(
+                      value: globals.drop7,
+                      items: <int>[5, 4, 3, 2, 1].map((int value4) {
+                        return DropdownMenuItem<int>(
+                          value: value4,
+                          child: Text(
+                            value4.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value4) {
+                        setState(() {
+                          globals.drop7 = value4!;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const ListTile(
+                title: Text(
+                  "Select the version of the Finding 'A' game (1 or 2):",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: DropdownButton<int>(
+                      value: globals.drop8,
+                      items: <int>[1, 2].map((int value5) {
+                        return DropdownMenuItem<int>(
+                          value: value5,
+                          child: Text(
+                            value5 == 2
+                                ? '$value5 (3-5 letters)'
+                                : '$value5 (7-9 letters)',
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value5) {
+                        setState(() {
+                          globals.drop8 = value5!;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
           // ExpansionTile(
           //   leading: const Icon(Icons.looks_3_rounded),
           //   iconColor: Colors.grey,
@@ -285,7 +406,7 @@ class _SettingBar extends State<SettingBar> {
                 globals.numOfGames = globals.drop3;
                 globals.numOfWrongAnswers2 = globals.drop4;
                 globals.version = globals.drop5;
-                globals.GameNumber = globals.drop6;
+                globals.gameNumber = globals.drop6;
                 Scaffold.of(context).closeDrawer();
               },
               child: Container(

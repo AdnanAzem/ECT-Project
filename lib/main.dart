@@ -1,4 +1,6 @@
 import 'package:ect/View/fourth_exam/end_fourth_test_screen.dart';
+import 'package:ect/View/second_exam/second_exam_explanation_screen.dart';
+import 'package:ect/View/third_exam/third_exam_explanation_screen.dart';
 import 'package:ect/View/third_exam/third_exam_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,8 +25,7 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // home: LoginPage(),
-      home: FindingA(),
-      // home: EndOfFourthTest(),
+      home: ThirdExplanationPage(),
     );
   }
 }

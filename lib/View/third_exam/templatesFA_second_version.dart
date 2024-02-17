@@ -1,6 +1,6 @@
 import 'package:ect/Widgets/fixed_position.dart';
 
-class TemplatesFA1 {
+class TemplatesFA2 {
   // static String wordGenerate = '';
   static List<FixedPosition> firstTemplateFA(List<String> word) {
     List<FixedPosition> ans = [];
