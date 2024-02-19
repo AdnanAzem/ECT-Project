@@ -1,7 +1,13 @@
+import 'package:ect/View/first_exam/first_exam_explanation_screen.dart';
+import 'package:ect/View/first_exam/first_exam_screen.dart';
 import 'package:ect/View/fourth_exam/end_fourth_test_screen.dart';
+import 'package:ect/View/fourth_exam/fourth_exam_explanation_screen.dart';
+import 'package:ect/View/fourth_exam/fourth_exam_screen.dart';
 import 'package:ect/View/second_exam/second_exam_explanation_screen.dart';
 import 'package:ect/View/third_exam/third_exam_explanation_screen.dart';
 import 'package:ect/View/third_exam/third_exam_screen.dart';
+//import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'View/login_screen.dart';
@@ -24,8 +30,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      
+      //home: LoginPage(),
+      //home:Sides(),
+      //home:NumberComparison(),
       // home: ThirdExplanationPage(),
+      home:FourthExplanationPage()
+      //home:FirstExplanationPage(),
     );
   }
 }

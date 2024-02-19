@@ -1,4 +1,8 @@
-import 'package:ect/View/Fourth_exam/fourth_exam_screen.dart';
+import 'package:ect/View/fourth_exam/fourth_exam_screen.dart';
+import 'package:ect/Widgets/fixed_position.dart';
+
+
+import 'package:ect/View/third_exam/third_exam_screen.dart';
 import 'package:flutter/material.dart';
 
 class FourthExplanationPage extends StatefulWidget {
@@ -27,16 +31,16 @@ class _FourthExplanationPage extends State<FourthExplanationPage> {
             children: [
               const SizedBox(height: 30),
               const Text(
-                "Next, you will be presented with two numbers and will be required to click in the middle button \n that have in the left & right the same digits in the numbers no matter if they not in same sequence :",
+                "Next, you will be presented with multiple numbers,you are required to click the blue button of the two numbers that have the same digits:",
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 28,
+                    fontSize: 30,
                     fontFamily: 'Alkatra'),
               ),
               SizedBox(
-                height: 350,
-                width: 450,
-                child: Image.asset('assets/images/FindingAExample.png'),
+                height: 500,
+                width: 600,
+                child: Image.asset('assets/images/Simulator Screenshot - iPad Pro (12.9-inch) (6th generation) - 2024-02-18 at 21.56.27.png'),
               ),
               const SizedBox(height: 10),
               TextButton(

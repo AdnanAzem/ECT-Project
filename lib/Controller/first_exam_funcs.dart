@@ -1,13 +1,17 @@
+import 'dart:io';
 import 'dart:math';
 import 'package:ect/Model/globals.dart' as globals;
-import 'package:flutter/material.dart';
-
+//import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+//import 'package:flutter/material.dart';
+bool s=Platform.isIOS;
 whenChooseButton1() {
   globals.score1++;
   globals.roundCorrectness.add(true);
   globals.time1 = (globals.time1 / 2);
   globals.roundsTimes.add(globals.time1);
   print(globals.time1);
+  print(s);
 }
 
 whenChooseButton2() {
@@ -15,6 +19,7 @@ whenChooseButton2() {
   globals.roundsTimes.add(globals.time1);
   globals.roundCorrectness.add(false);
   print('wrong:' + globals.time1.toString());
+  print(s);
   globals.numOfWrongAnswers1--;
 }
 
@@ -58,7 +63,7 @@ class MyPainterRight extends CustomPainter {
     const p5 = Offset(250, 50);
     const p6 = Offset(250, 150);
     final paint = Paint()
-      ..color = Colors.black
+       ..color = Color.fromARGB(255, 2, 3, 3)
       ..strokeWidth = 4
       ..strokeCap = StrokeCap.round;
     canvas.drawLine(p1, p2, paint);
@@ -78,7 +83,7 @@ class MyPainterRightSecond extends CustomPainter {
     const p7 = Offset(250, 150);
     const p8 = Offset(250, 300);
     final paint = Paint()
-      ..color = Colors.black
+      ..color = Color.fromARGB(255, 0, 0, 0)
       ..strokeWidth = 4
       ..strokeCap = StrokeCap.round;
     canvas.drawLine(p7, p8, paint);
@@ -100,7 +105,7 @@ class MyPainterLeft extends CustomPainter {
     const p5 = Offset(250, 50);
     const p6 = Offset(250, 300);
     final paint = Paint()
-      ..color = Colors.black
+      ..color = Color.fromARGB(255, 2, 3, 3)
       ..strokeWidth = 4
       ..strokeCap = StrokeCap.round;
     canvas.drawLine(p1, p2, paint);
@@ -120,7 +125,7 @@ class MyPainterLeftSecond extends CustomPainter {
     const p7 = Offset(50, 50);
     const p8 = Offset(50, 300);
     final paint = Paint()
-      ..color = Colors.black
+       ..color = Color.fromARGB(255, 2, 3, 3)
       ..strokeWidth = 4
       ..strokeCap = StrokeCap.round;
     canvas.drawLine(p7, p8, paint);

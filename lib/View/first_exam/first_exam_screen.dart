@@ -1,8 +1,12 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'package:ect/View/first_exam/end_first_test_screen.dart';
 import 'package:ect/Model/globals.dart' as globals;
 import 'package:ect/Controller/first_exam_funcs.dart';
+import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
 
 // void main() {
 //   runApp(const MyApp());
@@ -30,10 +34,12 @@ CustomPainter side = MyPainterLeft();
 
 class _Sides extends State<Sides> {
   bool addline = false;
+  bool s=Platform.isIOS;
+  
   @override
   void initState() {
     side = chooseSide();
-    super.initState();
+    //super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => Timer(
           Duration(milliseconds: (globals.time1).toInt()),
@@ -48,7 +54,8 @@ class _Sides extends State<Sides> {
   @override
   Widget build(BuildContext context) {
     print(side);
-    return Scaffold(
+
+    return  Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[600]?.withOpacity(0.5),
       ),
@@ -94,8 +101,7 @@ class _Sides extends State<Sides> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ButtonBar(
-                    alignment: MainAxisAlignment.center,
+                  ButtonBar(alignment: MainAxisAlignment.center,
                     buttonPadding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 10),
                     children: [
@@ -103,6 +109,7 @@ class _Sides extends State<Sides> {
                         height: 70,
                         child: Image.asset('assets/images/left.png'),
                       ),
+                  
 
                       // Left side //
 
@@ -113,23 +120,23 @@ class _Sides extends State<Sides> {
                             whenChooseButton1();
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Sides()),
-                            );
+                              CupertinoPageRoute(builder: (context) => const Sides()),
+                              );
+                            //   MaterialPageRoute(
+                            //       builder: (context) => const Sides()),
+                            // );
                           } else {
                             if (globals.numOfWrongAnswers1 > 0) {
                               whenChooseButton2();
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Sides()),
+                               CupertinoPageRoute(builder: (context) => const Sides()),
                               );
                             } else {
                               whenUpdate();
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfTest()),
+                               CupertinoPageRoute(builder: (context) => const EndOfTest()),
                               );
                             }
                           }
@@ -142,7 +149,7 @@ class _Sides extends State<Sides> {
                             borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
+                                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
                                 offset: const Offset(
                                   7.0,
                                   7.0,
@@ -175,16 +182,14 @@ class _Sides extends State<Sides> {
                             whenChooseButtonDNS();
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Sides()),
-                            );
+                             CupertinoPageRoute(builder: (context) => const Sides()),
+                              );
                           } else {
                             whenUpdate();
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const EndOfTest()),
-                            );
+                            CupertinoPageRoute(builder: (context) => const EndOfTest()),
+                              );
                           }
                         },
                         child: Container(
@@ -195,7 +200,7 @@ class _Sides extends State<Sides> {
                             borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
+                                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
                                 offset: const Offset(
                                   7.0,
                                   7.0,
@@ -209,7 +214,7 @@ class _Sides extends State<Sides> {
                               'Did not see',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Alkatra'),
@@ -228,23 +233,20 @@ class _Sides extends State<Sides> {
                             whenChooseButton1();
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Sides()),
-                            );
+                             CupertinoPageRoute(builder: (context) => const Sides()),
+                              );
                           } else {
                             if (globals.numOfWrongAnswers1 > 0) {
                               whenChooseButton2();
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Sides()),
+                               CupertinoPageRoute(builder: (context) => const Sides()),
                               );
                             } else {
                               whenUpdate();
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfTest()),
+                               CupertinoPageRoute(builder: (context) => const EndOfTest()),
                               );
                             }
                           }
@@ -257,7 +259,7 @@ class _Sides extends State<Sides> {
                             borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.5),
+                                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
                                 offset: const Offset(
                                   7.0,
                                   7.0,
@@ -271,7 +273,7 @@ class _Sides extends State<Sides> {
                               'Right side',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Alkatra'),
