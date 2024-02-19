@@ -31,10 +31,10 @@ class _FourthExplanationPage extends State<FourthExplanationPage> {
             children: [
               const SizedBox(height: 30),
               const Text(
-                "Next, you will be presented with multiple numbers,you are required to click the blue button of the two numbers that have the same digits:",
+                "Next, you will be presented with multiple numbers,you are required to click \n the blue button of the two numbers that have the same digits:",
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 30,
+                    fontSize: 40,
                     fontFamily: 'Alkatra'),
               ),
               SizedBox(

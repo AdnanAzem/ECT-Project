@@ -15,20 +15,20 @@ List<String>  generateRandomNumber() {
 
   final _random=Random();
   
-   int  _randomNumber1 =(1000 + _random.nextInt(9000)) as int;
+   int  _randomNumber1 =(10000 + _random.nextInt(90000)) as int;
    String number1=_randomNumber1.toString();
-   int  _randomNumber2 =(1000 + _random.nextInt(9000)) as int;
+   int  _randomNumber2 =(10000 + _random.nextInt(90000)) as int;
    String number2=_randomNumber2.toString();
-   int  _randomNumber3 =(1000 + _random.nextInt(9000)) as int;
+   int  _randomNumber3 =(10000 + _random.nextInt(90000)) as int;
    String number3=_randomNumber3.toString();
-   int  _randomNumber4 =(1000 + _random.nextInt(9000)) as int;
+   int  _randomNumber4 =(10000 + _random.nextInt(90000)) as int;
    String number4=_randomNumber4.toString(); 
    
-    int _randomNumber5 =(1000 + _random.nextInt(9000)) as int;
+    int _randomNumber5 =(10000 + _random.nextInt(90000)) as int;
     String number5=_randomNumber5.toString(); 
-    int  _randomNumber6 =(1000 + _random.nextInt(9000)) as int;
+    int  _randomNumber6 =(10000 + _random.nextInt(90000)) as int;
     String number6=_randomNumber6.toString();
-    int  _randomNumber7 =(1000 + _random.nextInt(9000)) as int;
+    int  _randomNumber7 =(10000 + _random.nextInt(90000)) as int;
     String number7=_randomNumber7.toString();
     //int  _randomNumber8 =(1000 + _random.nextInt(9000)) as int;
 

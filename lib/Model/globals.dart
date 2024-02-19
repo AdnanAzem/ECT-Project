@@ -22,8 +22,8 @@ List<double> roundsTimes = [];
 List<bool> roundCorrectness = [];
 int click = 0; // num of answers first exam.
 int score1 = 0; // num of correct answers first exam.
-double init = 60;
-double time1 = 120; // milliseconds.
+double init = 600;
+double time1 = 600; // milliseconds.
 int numOfWrongAnswers1 = 2;
 
 // second exam

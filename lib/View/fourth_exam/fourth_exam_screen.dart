@@ -56,437 +56,462 @@ class _NumberComparisonState extends State<NumberComparison> {
       appBar: AppBar(
         backgroundColor: Colors.blue[600]?.withOpacity(0.5),
       ),
-      body:  Column(
-        children:[
-          const Text(
-              " Please choose your answer",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 55,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Alkatra'),
-            ),
-           SizedBox(
-                height:50,
+      body:  Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children:[
+            
+            const Text(
+                " Please choose your answer",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 55,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra'),
               ),
-          Row(
-            children: [
-              SizedBox(
-             width: 250,
-             ),
-            TextButton(
-              onPressed: ()   {},
+             SizedBox(
+                  height:50,
+                ),
+            Row(
+              children: [
+              //   SizedBox(
+              //  width: 250,
+              //  ),
+              Expanded( flex: 3,
+                child: 
+              TextButton(
+                onPressed: ()   {},
+                child: 
+                Text(
+                  str.first,
+               style: TextStyle(fontSize: 30),)),
+              )
+            //   SizedBox(
+            //   width: 150,
+            //   )
+            // , 
+             ,
+             Expanded(
+              flex: 1,
               child: 
-              Text(
-                str.first,
-             style: TextStyle(fontSize: 30),)),
-
-            SizedBox(
-            width: 150,
-            ), 
-           
-            GFIconButton(onPressed: (){
-             
-              if(the_answer==0){
-                gotcorrectanswer();
-                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-              }else{
-                if(globals.numOfWrongAnswers4>0){
-                  gotwronganswer();
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-                }
-
-              
-              else {
-                              whenUpdate4();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfFourthTest()),
-                              );
-              }
-              }
-            },
-            icon: Icon(Icons.check_box),),
-            
-            SizedBox(
-            width: 150,
-            ),
-             TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(1),
-             style: TextStyle(fontSize: 30),)),
-            
-            ],
-          ),
-          SizedBox(
-                height:30,
-              ),
-          Row(
-            children: [
-              SizedBox(
-             width: 250,
-             ),
-            TextButton(
-              onPressed: ()   {
+              GFIconButton(onPressed: (){
+               
+                if(the_answer==0){
+                  gotcorrectanswer();
+                   Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                }else{
+                  if(globals.numOfWrongAnswers4>0){
+                    gotwronganswer();
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                  }
+        
                 
+                else {
+                                whenUpdate4();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfFourthTest()),
+                                );
+                }
+                }
               },
-              child: Text(str.elementAt(2),
-             style: TextStyle(fontSize: 30),)),
-
-            SizedBox(
-            width: 150,
-            ), 
-           
-            GFIconButton(onPressed: (){
-              
-              if(the_answer==1){
-                gotcorrectanswer();
-                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-              }else{
-                if(globals.numOfWrongAnswers4>0){
-                  gotwronganswer();
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-                }
-
-              
-              else {
-                              whenUpdate4();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfFourthTest()),
-                              );
-              }
-              }  
-            },
-           
-            icon: Icon(Icons.check_box),),
-            
-            SizedBox(
-            width: 150,
-            ),
-             TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(3),
-             style: TextStyle(fontSize: 30),)),
-            
-            ],
-          ),
-          SizedBox(
-                height:30,
-              ),
-          Row(
-            children: [
-              SizedBox(
-             width: 250,
+              icon: Icon(Icons.check_box),),
              ),
-            TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(4),
-             style: TextStyle(fontSize: 30),)),
-
+            //   SizedBox(
+            //   width: 150,
+            //  ),
+            Expanded( flex:3,
+              child: 
+               TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(1),
+               style: TextStyle(fontSize: 30),)),
+            ),
+              ],
+            ),
             SizedBox(
-            width: 150,
-            ), 
-           
-            GFIconButton(onPressed: (){
+                  height:30,
+                ),
+            Row(
+              children: [
+                //SizedBox(
+              //  width: 250,
+              //  ),
+              Expanded( flex: 3,child:
+              TextButton(
+                onPressed: ()   {
+                  
+                },
+                child: Text(str.elementAt(2),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              // SizedBox(
+              // width: 150,
+              // ), 
+             Expanded( flex: 1,child:
+              GFIconButton(onPressed: (){
+                
+                if(the_answer==1){
+                  gotcorrectanswer();
+                   Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                }else{
+                  if(globals.numOfWrongAnswers4>0){
+                    gotwronganswer();
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                  }
+        
+                
+                else {
+                                whenUpdate4();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfFourthTest()),
+                                );
+                }
+                }  
+              },
              
-              if(the_answer==2){
-                gotcorrectanswer();
-                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-              }else{
-                if(globals.numOfWrongAnswers4>0){
-                  gotwronganswer();
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
+              icon: Icon(Icons.check_box),),
+             ),
+              // SizedBox(
+              // width: 150,
+              // ),
+              Expanded( flex: 3,child:
+               TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(3),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              ],
+            ),
+            SizedBox(
+                  height:30,
+                ),
+            Row(
+              children: [
+                //SizedBox(
+              //  width: 250,
+              //  ),
+              Expanded( flex: 3,child:
+              TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(4),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              // SizedBox(
+              // width: 150,
+              // ), 
+             Expanded( flex: 1,child:
+              GFIconButton(onPressed: (){
+               
+                if(the_answer==2){
+                  gotcorrectanswer();
+                   Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                }else{
+                  if(globals.numOfWrongAnswers4>0){
+                    gotwronganswer();
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                  }
+        
+                
+                else {
+                                whenUpdate4();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfFourthTest()),
+                                );
                 }
-
-              
-              else {
-                              whenUpdate4();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfFourthTest()),
-                              );
               }
-            }
-            },
-            
-            icon: Icon(Icons.check_box),),
-            
-            SizedBox(
-            width: 150,
-            ),
-             TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(5),
-             style: TextStyle(fontSize: 30),)),
-            
-            ],
-          ),
-          SizedBox(
-                height:30,
-              ),
-          Row(
-            children: [
-              SizedBox(
-             width: 250,
+              },
+              
+              icon: Icon(Icons.check_box),),
              ),
-            TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(6),
-             style: TextStyle(fontSize: 30),)),
-
+              // SizedBox(
+              // width: 150,
+              // ),
+              Expanded( flex: 3,child:
+               TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(5),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              ],
+            ),
             SizedBox(
-            width: 150,
-            ), 
-           
-            GFIconButton(onPressed: (){
-            
-              if(the_answer==3){
-                gotcorrectanswer();
-                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-              }else{
-                if(globals.numOfWrongAnswers4>0){
-                  gotwronganswer();
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
+                  height:30,
+                ),
+            Row(
+              children: [
+              //   SizedBox(
+              //  width: 250,
+              //  ),
+              Expanded( flex: 3,child:
+              TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(6),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              // SizedBox(
+              // width: 150,
+              // ), 
+             Expanded( flex: 1,child:
+              GFIconButton(onPressed: (){
+              
+                if(the_answer==3){
+                  gotcorrectanswer();
+                   Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                }else{
+                  if(globals.numOfWrongAnswers4>0){
+                    gotwronganswer();
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                  }
+        
+                
+                else {
+                                whenUpdate4();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfFourthTest()),
+                                );
                 }
-
-              
-              else {
-                              whenUpdate4();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfFourthTest()),
-                              );
-              }
-              }
-            },
-           
-            icon: Icon(Icons.check_box),),
-            
-            SizedBox(
-            width: 150,
-            ),
-             TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(7),
-             style: TextStyle(fontSize: 30),)),
-            
-            ],
-          ),
-          SizedBox(
-                height:30,
-              ),
-          Row(
-            children: [
-              SizedBox(
-             width: 250,
-             ),
-            TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(8),
-             style: TextStyle(fontSize: 30),)),
-
-            SizedBox(
-            width: 150,
-            ), 
-           
-            GFIconButton(onPressed: (){
-              
-              if(the_answer==4){
-                gotcorrectanswer();
-                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-              }else{
-                if(globals.numOfWrongAnswers4>0){
-                  gotwronganswer();
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                    );
-              }
-              else {
-                              whenUpdate4();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfFourthTest()),
-                              );
-              }
-              } 
-            },
-            
-            icon: Icon(Icons.check_box),),
-            
-            SizedBox(
-            width: 150,
-            ),
-             TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(9),
-             style: TextStyle(fontSize: 30),)),
-            
-            ],
-          ),
-          SizedBox(
-                height:30,
-              ),
-          Row(
-            children: [
-              SizedBox(
-             width: 250,
-             ),
-            TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(10),
-             style: TextStyle(fontSize: 30),)),
-
-            SizedBox(
-            width: 150,
-            ), 
-           
-            GFIconButton(onPressed: (){
-              
-              if(the_answer==5){
-                gotcorrectanswer();
-                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-              }else{
-                if(globals.numOfWrongAnswers4>0){
-                  gotwronganswer();
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
                 }
-
-              
-              else {
-                              whenUpdate4();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfFourthTest()),
-                              );
-              }
-              }
-            },
-            icon: Icon(Icons.check_box),),
-            
-            SizedBox(
-            width: 150,
-            ),
-             TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(11),
-             style: TextStyle(fontSize: 30),)),
-            
-            ],
-          ),
-          SizedBox(
-                height:30,
-              ),
-          Row(
-            children: [
-              SizedBox(
-             width: 250,
-             ),
-            TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(12),
-             style: TextStyle(fontSize: 30),)),
-
-            SizedBox(
-            width: 150,
-            ), 
-           
-            GFIconButton(onPressed: (){
+              },
              
-              if(the_answer==6){
-                gotcorrectanswer();
-                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-              }else{
-                if(globals.numOfWrongAnswers4>0){
-                  gotwronganswer();
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const NumberComparison()),
-                              );
-                }
-              else {
-                              whenUpdate4();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const EndOfFourthTest()),
-                              );
-              }
-            }
-            },
-            icon: Icon(Icons.check_box),),
-            
-            SizedBox(
-            width: 150,
+              icon: Icon(Icons.check_box),),
+             ),
+              // SizedBox(
+              // width: 150,
+              // ),
+              Expanded( flex: 3,child:
+               TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(7),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              ],
             ),
-             TextButton(
-              onPressed: ()   {},
-              child: Text(str.elementAt(13),
-             style: TextStyle(fontSize: 30),)),
+            SizedBox(
+                  height:30,
+                ),
+            Row(
+              children: [
+              //   SizedBox(
+              //  width: 250,
+              //  ),
+              Expanded( flex: 3,child:
+              TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(8),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              // SizedBox(
+              // width: 150,
+              // ), 
+             Expanded( flex: 1,child:
+              GFIconButton(onPressed: (){
+                
+                if(the_answer==4){
+                  gotcorrectanswer();
+                   Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                }else{
+                  if(globals.numOfWrongAnswers4>0){
+                    gotwronganswer();
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                      );
+                }
+                else {
+                                whenUpdate4();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfFourthTest()),
+                                );
+                }
+                } 
+              },
+              
+              icon: Icon(Icons.check_box),),
+             ),
+              // SizedBox(
+              // width: 150,
+              // ),
+              Expanded( flex: 3,child:
+               TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(9),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              ],
+            ),
+            SizedBox(
+                  height:30,
+                ),
+            Row(
+              children: [
+              //   SizedBox(
+              //  width: 250,
+              //  ),
+              Expanded( flex: 3,child:
+              TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(10),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              // SizedBox(
+              // width: 150,
+              // ), 
+             Expanded( flex: 1,child:
+              GFIconButton(onPressed: (){
+                
+                if(the_answer==5){
+                  gotcorrectanswer();
+                   Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                }else{
+                  if(globals.numOfWrongAnswers4>0){
+                    gotwronganswer();
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                  }
+        
+                
+                else {
+                                whenUpdate4();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfFourthTest()),
+                                );
+                }
+                }
+              },
+              icon: Icon(Icons.check_box),),
+             ),
+              // SizedBox(
+              // width: 150,
+              // ),
+              Expanded( flex: 3,child:
+               TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(11),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              ],
+            ),
+            SizedBox(
+                  height:30,
+                ),
+            Row(
+              children: [
+               // SizedBox(
+              //  width: 250,
+              //  ),
+              Expanded( flex: 3,child:
+              TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(12),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              // SizedBox(
+              // width: 150,
+              // ), 
+             Expanded( flex: 1,child:
+              GFIconButton(onPressed: (){
+               
+                if(the_answer==6){
+                  gotcorrectanswer();
+                   Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                }else{
+                  if(globals.numOfWrongAnswers4>0){
+                    gotwronganswer();
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NumberComparison()),
+                                );
+                  }
+                else {
+                                whenUpdate4();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const EndOfFourthTest()),
+                                );
+                }
+              }
+              },
+              icon: Icon(Icons.check_box),),
+             ),
+              // SizedBox(
+              // width: 150,
+              // ),
+              Expanded( flex: 3,child:
+               TextButton(
+                onPressed: ()   {},
+                child: Text(str.elementAt(13),
+               style: TextStyle(fontSize: 30),)),
+              ),
+              ],
+            ),
+         
             
-            ],
-          ),
-       
-          
-        ]
+          ]
+        ),
       ),
     );
   }
