@@ -36,7 +36,7 @@ class _FourthExplanationPage extends State<FourthExplanationPage> {
               SizedBox(
                 height: 350,
                 width: 450,
-                child: Image.asset('assets/images/FindingAExample.png'),
+                child: Image.asset('assets/images/FourthExam.png'),
               ),
               const SizedBox(height: 10),
               TextButton(

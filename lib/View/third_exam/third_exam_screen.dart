@@ -12,7 +12,16 @@ class FindingA extends StatefulWidget {
 
 class _FindingAState extends State<FindingA> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    globals.stopwatchFA.reset();
+    globals.stopwatchFA.start();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    globals.gameTimes3++;
     List<FixedPosition> templates = chooseTemplate(globals.versionFA);
     return Scaffold(
       appBar: AppBar(

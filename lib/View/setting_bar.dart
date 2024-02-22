@@ -224,7 +224,7 @@ class _SettingBar extends State<SettingBar> {
             ],
           ),
           ExpansionTile(
-            leading: const Icon(Icons.looks_two_rounded),
+            leading: const Icon(Icons.looks_3_rounded),
             iconColor: Colors.grey,
             textColor: Colors.grey,
             title: const Text('Third Exam',
@@ -344,6 +344,127 @@ class _SettingBar extends State<SettingBar> {
               ),
             ],
           ),
+          ExpansionTile(
+            leading: const Icon(Icons.looks_4_rounded),
+            iconColor: Colors.grey,
+            textColor: Colors.grey,
+            title: const Text('Fourth Exam',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra')),
+            children: [
+              const ListTile(
+                title: Text(
+                  "Select the number of games before ending the test (correct answers):",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: DropdownButton<int>(
+                      value: globals.drop9,
+                      items: <int>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+                          .map((int value3) {
+                        return DropdownMenuItem<int>(
+                          value: value3,
+                          child: Text(
+                            value3.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value3) {
+                        setState(() {
+                          globals.drop9 = value3!;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const ListTile(
+                title: Text(
+                  "Select the number of wrong answers before ending the test:",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: DropdownButton<int>(
+                      value: globals.drop10,
+                      items: <int>[5, 4, 3, 2, 1].map((int value4) {
+                        return DropdownMenuItem<int>(
+                          value: value4,
+                          child: Text(
+                            value4.toString(),
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value4) {
+                        setState(() {
+                          globals.drop10 = value4!;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const ListTile(
+                title: Text(
+                  "Select the version of the Number Compration game (1 or 2):",
+                  style: TextStyle(
+                      fontSize: 16, color: Colors.black, fontFamily: 'Alkatra'),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: DropdownButton<int>(
+                      value: globals.drop11,
+                      items: <int>[1, 2].map((int value5) {
+                        return DropdownMenuItem<int>(
+                          value: value5,
+                          child: Text(
+                            value5 == 2
+                                ? '$value5 (6 digits)'
+                                : '$value5 (4 digits)',
+                            style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: 'Alkatra'),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (value5) {
+                        setState(() {
+                          globals.drop11 = value5!;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
           // ExpansionTile(
           //   leading: const Icon(Icons.looks_3_rounded),
           //   iconColor: Colors.grey,
@@ -409,6 +530,9 @@ class _SettingBar extends State<SettingBar> {
                 globals.gameNumber = globals.drop6;
                 globals.numOfWrongAnswers3 = globals.drop7;
                 globals.versionFA = globals.drop8;
+                globals.numOfGames4 = globals.drop9;
+                globals.numOfWrongAnswers4 = globals.drop10;
+                globals.versionNC = globals.drop11;
                 Scaffold.of(context).closeDrawer();
               },
               child: Container(

@@ -1,3 +1,4 @@
+import 'package:ect/Controller/results.dart';
 import 'package:ect/View/fourth_exam/fourth_exam_explanation_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +54,8 @@ class _EndOfThirdTest extends State<EndOfThirdTest> {
                 ),
                 const SizedBox(height: 80),
                 TextButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    saveResults3();
                     // createFolder();
                     // createInfo();
                     // createFirstExam();

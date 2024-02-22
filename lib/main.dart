@@ -1,7 +1,8 @@
+// import 'package:ect/View/fourth_exam/fourth_exam_explanation_screen.dart';
 import 'package:ect/View/fourth_exam/end_fourth_test_screen.dart';
+import 'package:ect/View/fourth_exam/fourth_exam_explanation_screen.dart';
 import 'package:ect/View/second_exam/second_exam_explanation_screen.dart';
 import 'package:ect/View/third_exam/third_exam_explanation_screen.dart';
-import 'package:ect/View/third_exam/third_exam_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'View/login_screen.dart';
@@ -24,14 +25,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-      // home: ThirdExplanationPage(),
+      // home: LoginPage(),
+      home: FourthExplanationPage(),
     );
   }
-}
-
-class EndOfFourthTes {
-  const EndOfFourthTes();
 }
 
 class Homepage extends StatefulWidget {

@@ -8,12 +8,13 @@ import 'package:ect/Model/globals.dart' as globals;
 import 'package:get/get.dart';
 // import 'package:word_generator/word_generator.dart';
 
-void checkAnswer(String word) {
+
+checkAnswer(String word) {
   if (word.contains('a')) {
     globals.score3++;
     globals.stopwatchFA.stop();
     globals.time3 = globals.stopwatchFA.elapsed;
-    globals.rountimes.add(globals.time3);
+    globals.roundTimesFA.add(globals.time3);
     globals.roundsBoolFA.add(true);
     Get.offAll(const FindingA());
     globals.gameNumber--;
@@ -109,7 +110,7 @@ String generateWordWithoutA(int length) {
   return word;
 }
 
-List<FixedPosition> chooseRandomTemplateFA1( ) {
+List<FixedPosition> chooseRandomTemplateFA1() {
   // List<int> temp = [
   //   1,
   //   2,
@@ -124,8 +125,6 @@ List<FixedPosition> chooseRandomTemplateFA1( ) {
   return ans;
 }
 
-
 List<FixedPosition> chooseTemplate(int x) {
-
   return (chooseRandomTemplateFA1());
 }

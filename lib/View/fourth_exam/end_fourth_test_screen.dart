@@ -1,9 +1,9 @@
 import 'package:csv/csv.dart';
+import 'package:ect/Controller/results.dart';
 import 'package:ect/View/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -41,81 +41,70 @@ Future<void> exportFirestoreDataToCsv() async {
 Future<void> exportFirestoreDataToCsv1() async {
   // Query data from Firestore
   QuerySnapshot<Map<String, dynamic>> snapshot =
-  await FirebaseFirestore.instance.collection('first_exam').get();
+      await FirebaseFirestore.instance.collection('first_exam').get();
 
-  List<dynamic> fieldValues = [];
-  fieldValues = snapshot.docs.map((e) => e['Answers']).toList();
+  List<Map<String, dynamic>> dataList = [];
+  snapshot.docs.forEach((doc) {
+    dataList.add(doc.data());
+  });
 
+  List<List<dynamic>> csvData = [];
 
+  // Add header row
+  csvData.add(dataList.first.keys.toList());
 
+  // Add data rows
+  for (var data in dataList) {
+    csvData.add(data.values.toList());
+  }
 
-  // print(fieldValues);
+  // Generate CSV content
+  String csvString = const ListToCsvConverter().convert(csvData);
 
-  // List<List<dynamic>> csvData1 = [
-  //   ['round','correctness','side','shape_display_time'],
-  //   ...snapshot..map((e) => [
-  //     e['round'],
-  //     e['correctness'],
-  //     e['side'],
-  //     e['shape_display_time']
-  //   ]),
-  // ];
-
-  // String csvFile = const ListToCsvConverter().convert(csvData1);
-
-  // Convert data to CSV format
-  List<List<dynamic>> csvData = [
-    // Headers
-    ['ID', 'Total_correct_answers'], // Replace with your field names
-
-    // Data rows
-    ...snapshot.docs.map((doc) => [
-      doc['ID'],
-      doc['Total_correct_answers'],
-      // fieldValues,
-      // Add more fields as needed
-    ]),
-  ];
-
-  // Write CSV data to a file
-  String csv = const ListToCsvConverter().convert(csvData);
-  // String csv1 = const ListToCsvConverter().convert(csvData1);
+  // Get the document directory using path_provider
   final directory = await getApplicationDocumentsDirectory();
-  final file = File('${directory.path}/first_exam.csv');
-  // final file1 = File('${directory.path}/first_exam_answers.csv');
-  await file.writeAsString(csv);
-  // await file1.writeAsString(csvFile);
+  final filePath = '${directory.path}/first_exam.csv';
 
-  print('CSV file exported to: ${file.path}');
-  // print('CSV file exported to: ${file1.path}');
+  // Write CSV content to the file
+  File file = File(filePath);
+  await file.writeAsString(csvString);
+
+  print('CSV file saved successfully at: $filePath');
 }
 
 Future<void> exportFirestoreDataToCsv2() async {
   // Query data from Firestore
   QuerySnapshot<Map<String, dynamic>> snapshot =
-  await FirebaseFirestore.instance.collection('second_exam').get();
+      await FirebaseFirestore.instance.collection('second_exam').get();
 
   // Convert data to CSV format
-  List<List<dynamic>> csvData = [
-    // Headers
-    ['ID', 'Total_correct_answers', 'Answers'], // Replace with your field names
+  List<Map<String, dynamic>> dataList = [];
+  snapshot.docs.forEach((doc) {
+    dataList.add(doc.data());
+  });
 
-    // Data rows
-    ...snapshot.docs.map((doc) => [
-      doc['ID'],
-      doc['Total_correct_answers'],
-      doc['Answers'],
-      // Add more fields as needed
-    ]),
-  ];
+  List<List<dynamic>> csvData = [];
 
-  // Write CSV data to a file
-  String csv = const ListToCsvConverter().convert(csvData);
+  // Add header row
+  csvData.add(dataList.first.keys.toList());
+
+  // Add data rows
+  for (var data in dataList) {
+    csvData.add(data.values.toList());
+  }
+
+  // Generate CSV content
+  String csvString = const ListToCsvConverter().convert(csvData);
+
+  // Get the document directory using path_provider
   final directory = await getApplicationDocumentsDirectory();
-  final file = File('${directory.path}/second_exam.csv');
-  await file.writeAsString(csv);
+  final filePath = '${directory.path}/second_exam.csv';
 
-  print('CSV file exported to: ${file.path}');
+  // Write CSV content to the file
+  File file = File(filePath);
+  await file.writeAsString(csvString);
+
+  print('CSV file saved successfully at: $filePath');
 }
 
 void main() {
@@ -144,83 +133,73 @@ class _EndOfFourthTest extends State<EndOfFourthTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue[600]?.withOpacity(0.5),
+      appBar: AppBar(
+        backgroundColor: Colors.blue[600]?.withOpacity(0.5),
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/background1.png"),
+              fit: BoxFit.cover),
         ),
-        body: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/background1.png"),
-                  fit: BoxFit.cover),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 300),
+            const Center(
+              child: Text(
+                "You finished the last part",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 60,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Alkatra'),
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 300),
-                const Center(
+            const SizedBox(height: 80),
+            TextButton(
+              onPressed: () async {
+                saveResults4();
+                reset();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+              child: Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Colors.blue[300]?.withOpacity(0.8),
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      offset: const Offset(
+                        7.0,
+                        7.0,
+                      ),
+                      blurRadius: 10.0,
+                    ),
+                  ],
+                ),
+                child: const Center(
                   child: Text(
-                    "You finished the last part",
+                    'End test',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 60,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Alkatra'),
                   ),
                 ),
-                const SizedBox(height: 80),
-                TextButton(
-                  onPressed: () async {
-                    // exportFirestoreDataToCsv();
-                    // exportFirestoreDataToCsv1();
-                    // exportFirestoreDataToCsv2();
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage()),
-                    );
-                    // createFolder();
-                    // createInfo();
-                    // createFirstExam();
-                    // createSecondExam();
-                    // createFourthExam();
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const LoginPage()),
-                    // );
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.blue[300]?.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          offset: const Offset(
-                            7.0,
-                            7.0,
-                          ),
-                          blurRadius: 10.0,
-                        ),
-                      ],
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'End test',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Alkatra'),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            )));
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

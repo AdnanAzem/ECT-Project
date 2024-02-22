@@ -50,6 +50,7 @@ dependencies:
   cron: ^0.6.0
   csv: ^5.1.1
   word_generator: ^0.4.4
+  getwidget: ^4.0.0
 
 dev_dependencies:
   flutter_test:

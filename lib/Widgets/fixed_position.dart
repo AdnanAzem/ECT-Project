@@ -28,6 +28,10 @@ class FixedPosition extends StatelessWidget {
       bottom: bottom,
       child: TextButton(
         onPressed: () {
+          //   correctAnswer();
+          // } else {
+          //   wrongAnswer();
+          // }
           checkAnswer(word);
         },
         child: SizedBox(

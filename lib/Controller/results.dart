@@ -28,7 +28,6 @@ void saveResults1() async {
       "shape_display_time": globals.roundsTimes[i],
       "correctness": globals.roundCorrectness[i],
     });
-    // Map<String, dynamic> toJson() =>
   }
 
   await FirebaseFirestore.instance.collection('first_exam').add({
@@ -45,13 +44,47 @@ void saveResults2() async {
       "round": i + 1,
       "time_until_choose_the_object": (globals.rountimes[i]).toString(),
       "correctness": globals.roundsBool[i],
-      "side_clicked": 'r',
     });
   }
 
   await FirebaseFirestore.instance.collection('second_exam').add({
     'ID': globals.iD,
     'Total_correct_answers': globals.score2,
+    'answers': answers,
+  });
+}
+
+void saveResults3() async {
+  List<Map<String, dynamic>> answers = [];
+  for (int i = 0; i < (globals.roundsBoolFA).length; i++) {
+    answers.add({
+      "round": i + 1,
+      "time_until_choose_the_object": (globals.roundTimesFA[i]).toString(),
+      "correctness": globals.roundsBoolFA[i],
+    });
+  }
+
+  await FirebaseFirestore.instance.collection('third_exam').add({
+    'ID': globals.iD,
+    'Total_correct_answers': globals.score3,
+    'answers': answers,
+  });
+  print('Done');
+}
+
+void saveResults4() async {
+  List<Map<String, dynamic>> answers = [];
+  for (int i = 0; i < (globals.roundsBoolNC).length; i++) {
+    answers.add({
+      "round": i + 1,
+      "time_until_choose_the_object": (globals.roundsTimesNC[i]).toString(),
+      "correctness": globals.roundsBoolNC[i],
+    });
+  }
+
+  await FirebaseFirestore.instance.collection('fourth_exam').add({
+    'ID': globals.iD,
+    'Total_correct_answers': globals.score4,
     'answers': answers,
   });
 }
@@ -138,4 +171,56 @@ createThirdExam() async {
   // }
   // file.writeAsString("Total correct answers: ${globals.score3} \n",
   //     mode: FileMode.append);
+}
+
+void reset() {
+  // info
+  globals.name = '';
+  globals.iD = '';
+  globals.age = '';
+  globals.gender = '';
+  globals.data = [];
+
+// first exam
+  globals.sideTemp = -1;
+  globals.roundSides = [];
+  globals.roundsTimes = [];
+  globals.roundCorrectness = [];
+  globals.click = 0;
+  globals.score1 = 0;
+  globals.init = 60;
+  globals.time1 = 60;
+  globals.numOfWrongAnswers1 = 2;
+
+// second exam
+  globals.score2 = 0;
+  globals.roundsBool = [];
+  globals.rountimes = [];
+  globals.gamesTimes = 0;
+  globals.numOfWrongAnswers2 = 1;
+  globals.numOfGames = 5;
+  globals.time2 = const Duration(seconds: 0);
+  globals.version = 1;
+  globals.leftOrRight = 0;
+  globals.numClickOnRight = 0;
+
+// third exam
+  globals.versionFA = 1;
+  globals.score3 = 0;
+  globals.time3 = const Duration(seconds: 0);
+  globals.roundsBoolFA = [];
+  globals.numOfWrongAnswers3 = 1;
+
+  globals.gameNumber = 5;
+
+//fourth exam
+  globals.score4 = 0;
+  globals.time4 = const Duration(seconds: 0);
+
+  globals.roundsTimesNC = [];
+  globals.roundsBoolNC = [];
+  globals.numOfWrongAnswers4 = 1;
+
+  globals.numOfGames4 = 5;
+  globals.versionNC = 1;
 }
