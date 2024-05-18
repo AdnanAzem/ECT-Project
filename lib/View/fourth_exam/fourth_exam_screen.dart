@@ -32,432 +32,467 @@ class _NumberComparisonState extends State<NumberComparison> {
       ),
       body: Center(
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                " Please choose your answer",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 55,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Alkatra'),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.first,
-                        style: const TextStyle(fontSize: 30),
-                      ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              " Please choose your answer",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 55,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Alkatra'),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.first,
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: GFIconButton(
-                      onPressed: () {
-                        if (the_answer == 0) {
-                          gotcorrectanswer();
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GFIconButton(
+                    onPressed: () {
+                      if (the_answer == 0) {
+                        gotcorrectanswer();
+                        if (globals.score4 <= globals.numOfGames4) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const NumberComparison()),
                           );
                         } else {
-                          if (globals.numOfWrongAnswers4 > 0) {
-                            gotwronganswer();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NumberComparison()),
-                            );
-                          } else {
-                            whenUpdate4();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EndOfFourthTest()),
-                            );
-                          }
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
                         }
-                      },
-                      icon: Icon(Icons.check_box),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(1),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(2),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: GFIconButton(
-                      onPressed: () {
-                        if (the_answer == 1) {
-                          gotcorrectanswer();
+                      } else {
+                        if (globals.numOfWrongAnswers4 > 0) {
+                          gotwronganswer();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const NumberComparison()),
                           );
                         } else {
-                          if (globals.numOfWrongAnswers4 > 0) {
-                            gotwronganswer();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NumberComparison()),
-                            );
-                          } else {
-                            whenUpdate4();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EndOfFourthTest()),
-                            );
-                          }
+                          whenUpdate4();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
                         }
-                      },
-                      icon: Icon(Icons.check_box),
+                      }
+                    },
+                    icon: const Icon(Icons.check_box),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(1),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(3),
-                        style: TextStyle(fontSize: 30),
-                      ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(2),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(4),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: GFIconButton(
-                      onPressed: () {
-                        if (the_answer == 2) {
-                          gotcorrectanswer();
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GFIconButton(
+                    onPressed: () {
+                      if (the_answer == 1) {
+                        gotcorrectanswer();
+                        if (globals.score4 <= globals.numOfGames4) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const NumberComparison()),
                           );
                         } else {
-                          if (globals.numOfWrongAnswers4 > 0) {
-                            gotwronganswer();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NumberComparison()),
-                            );
-                          } else {
-                            whenUpdate4();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EndOfFourthTest()),
-                            );
-                          }
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
                         }
-                      },
-                      icon: Icon(Icons.check_box),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(5),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(6),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: GFIconButton(
-                      onPressed: () {
-                        if (the_answer == 3) {
-                          gotcorrectanswer();
+                      } else {
+                        if (globals.numOfWrongAnswers4 > 0) {
+                          gotwronganswer();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const NumberComparison()),
                           );
                         } else {
-                          if (globals.numOfWrongAnswers4 > 0) {
-                            gotwronganswer();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NumberComparison()),
-                            );
-                          } else {
-                            whenUpdate4();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EndOfFourthTest()),
-                            );
-                          }
+                          whenUpdate4();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
                         }
-                      },
-                      icon: Icon(Icons.check_box),
+                      }
+                    },
+                    icon: const Icon(Icons.check_box),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(3),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(7),
-                        style: TextStyle(fontSize: 30),
-                      ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(4),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(8),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: GFIconButton(
-                      onPressed: () {
-                        if (the_answer == 4) {
-                          gotcorrectanswer();
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GFIconButton(
+                    onPressed: () {
+                      if (the_answer == 2) {
+                        gotcorrectanswer();
+                        if (globals.score4 <= globals.numOfGames4) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const NumberComparison()),
                           );
                         } else {
-                          if (globals.numOfWrongAnswers4 > 0) {
-                            gotwronganswer();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NumberComparison()),
-                            );
-                          } else {
-                            whenUpdate4();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EndOfFourthTest()),
-                            );
-                          }
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
                         }
-                      },
-                      icon: Icon(Icons.check_box),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(9),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(10),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: GFIconButton(
-                      onPressed: () {
-                        if (the_answer == 5) {
-                          gotcorrectanswer();
+                      } else {
+                        if (globals.numOfWrongAnswers4 > 0) {
+                          gotwronganswer();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const NumberComparison()),
                           );
                         } else {
-                          if (globals.numOfWrongAnswers4 > 0) {
-                            gotwronganswer();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NumberComparison()),
-                            );
-                          } else {
-                            whenUpdate4();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EndOfFourthTest()),
-                            );
-                          }
+                          whenUpdate4();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
                         }
-                      },
-                      icon: Icon(Icons.check_box),
+                      }
+                    },
+                    icon: const Icon(Icons.check_box),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(5),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(11),
-                        style: TextStyle(fontSize: 30),
-                      ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(6),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(12),
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: GFIconButton(
-                      onPressed: () {
-                        if (the_answer == 6) {
-                          gotcorrectanswer();
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GFIconButton(
+                    onPressed: () {
+                      if (the_answer == 3) {
+                        gotcorrectanswer();
+                        if (globals.score4 <= globals.numOfGames4) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const NumberComparison()),
                           );
                         } else {
-                          if (globals.numOfWrongAnswers4 > 0) {
-                            gotwronganswer();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NumberComparison()),
-                            );
-                          } else {
-                            whenUpdate4();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EndOfFourthTest()),
-                            );
-                          }
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
                         }
-                      },
-                      icon: Icon(Icons.check_box),
+                      } else {
+                        if (globals.numOfWrongAnswers4 > 0) {
+                          gotwronganswer();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NumberComparison()),
+                          );
+                        } else {
+                          whenUpdate4();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
+                        }
+                      }
+                    },
+                    icon: const Icon(Icons.check_box),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(7),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                  Expanded(
-                    flex: 3,
-                    child: Center(
-                      child: Text(
-                        str.elementAt(13),
-                        style: TextStyle(fontSize: 30),
-                      ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(8),
+                      style: const TextStyle(fontSize: 30),
                     ),
                   ),
-                ],
-              ),
-            ]),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GFIconButton(
+                    onPressed: () {
+                      if (the_answer == 4) {
+                        gotcorrectanswer();
+                        if (globals.score4 <= globals.numOfGames4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NumberComparison()),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
+                        }
+                      } else {
+                        if (globals.numOfWrongAnswers4 > 0) {
+                          gotwronganswer();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NumberComparison()),
+                          );
+                        } else {
+                          whenUpdate4();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
+                        }
+                      }
+                    },
+                    icon: const Icon(Icons.check_box),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(9),
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(10),
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GFIconButton(
+                    onPressed: () {
+                      if (the_answer == 5) {
+                        gotcorrectanswer();
+                        if (globals.score4 <= globals.numOfGames4) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NumberComparison()),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
+                        }
+                      } else {
+                        if (globals.numOfWrongAnswers4 > 0) {
+                          gotwronganswer();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NumberComparison()),
+                          );
+                        } else {
+                          whenUpdate4();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
+                        }
+                      }
+                    },
+                    icon: const Icon(Icons.check_box),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(11),
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(12),
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GFIconButton(
+                    onPressed: () {
+                      if (the_answer == 6) {
+                        gotcorrectanswer();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const NumberComparison()),
+                        );
+                      } else {
+                        if (globals.numOfWrongAnswers4 > 0) {
+                          gotwronganswer();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NumberComparison()),
+                          );
+                        } else {
+                          whenUpdate4();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EndOfFourthTest()),
+                          );
+                        }
+                      }
+                    },
+                    icon: const Icon(Icons.check_box),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Text(
+                      str.elementAt(13),
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
