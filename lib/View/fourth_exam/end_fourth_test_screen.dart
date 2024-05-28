@@ -161,6 +161,8 @@ class _EndOfFourthTest extends State<EndOfFourthTest> {
             TextButton(
               onPressed: () async {
                 saveResults4();
+                saveMLResults();
+                exportDataToCSV();
                 reset();
                 Navigator.pushReplacement(
                   context,

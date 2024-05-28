@@ -43,6 +43,8 @@ class _Sides extends State<Sides> {
             });
           },
         ));
+    globals.stopwatch.reset();
+    globals.stopwatch.start();
   }
 
   @override
@@ -109,7 +111,7 @@ class _Sides extends State<Sides> {
                       TextButton(
                         onPressed: () {
                           globals.click++;
-                          if (globals.sideTemp == 0) {
+                          if (globals.sideTemp == 0 && globals.numOfGames1 > 0) {
                             whenChooseButton1();
                             Navigator.push(
                               context,
@@ -117,7 +119,8 @@ class _Sides extends State<Sides> {
                                   builder: (context) => const Sides()),
                             );
                           } else {
-                            if (globals.numOfWrongAnswers1 > 0) {
+                            // if (globals.numOfWrongAnswers1 > 0) {
+                            if (globals.numOfGames1 > 0) {
                               whenChooseButton2();
                               Navigator.push(
                                 context,
@@ -171,7 +174,8 @@ class _Sides extends State<Sides> {
                       TextButton(
                         onPressed: () {
                           globals.click++;
-                          if (globals.numOfWrongAnswers1 > 0) {
+                          // if (globals.numOfWrongAnswers1 > 0) {
+                          if (globals.numOfGames1 > 0) {
                             whenChooseButtonDNS();
                             Navigator.push(
                               context,
@@ -224,7 +228,7 @@ class _Sides extends State<Sides> {
                       TextButton(
                         onPressed: () {
                           globals.click++;
-                          if (globals.sideTemp == 1) {
+                          if (globals.sideTemp == 1 && globals.numOfGames1 > 0) {
                             whenChooseButton1();
                             Navigator.push(
                               context,
@@ -232,7 +236,8 @@ class _Sides extends State<Sides> {
                                   builder: (context) => const Sides()),
                             );
                           } else {
-                            if (globals.numOfWrongAnswers1 > 0) {
+                            // if (globals.numOfWrongAnswers1 > 0) {
+                            if (globals.numOfGames1 > 0) {
                               whenChooseButton2();
                               Navigator.push(
                                 context,

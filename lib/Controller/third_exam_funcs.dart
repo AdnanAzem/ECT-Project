@@ -8,7 +8,6 @@ import 'package:ect/Model/globals.dart' as globals;
 import 'package:get/get.dart';
 // import 'package:word_generator/word_generator.dart';
 
-
 checkAnswer(String word) {
   if (word.contains('a')) {
     globals.score3++;
@@ -24,9 +23,14 @@ checkAnswer(String word) {
     }
   } else {
     globals.roundsBoolFA.add(false);
-    if (globals.numOfWrongAnswers3 > 0) {
+    // if (globals.numOfWrongAnswers3 > 0) {
+    globals.gameNumber--;
+    globals.wrongAnswersML++;
+    if (globals.gameNumber > 0) {
       globals.roundTimesFA.add(globals.time3);
-      globals.numOfWrongAnswers3--;
+      // globals.numOfWrongAnswers3--;
+
+      
     } else {
       globals.roundTimesFA.add((globals.time3));
       Get.offAll(const EndOfThirdTest());

@@ -28,9 +28,13 @@ updateValuesDouble1() {
 
 updateValuesDouble2() {
   globals.roundsBool.add(false);
-  if (globals.numOfWrongAnswers2 > 0) {
+  globals.numOfGames--;
+  globals.wrongAnswersML++;
+  // if (globals.numOfWrongAnswers2 > 0) {
+  if (globals.numOfGames > 0) {
     globals.rountimes.add(globals.time2);
-    globals.numOfWrongAnswers2--;
+    // globals.numOfWrongAnswers2--;
+    
   } else {
     globals.rountimes.add(globals.time2);
     Get.offAll(const EndOfSecondTest());

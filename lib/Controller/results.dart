@@ -1,3 +1,4 @@
+import 'package:csv/csv.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ect/Model/globals.dart' as globals;
 import 'package:path_provider/path_provider.dart';
@@ -10,13 +11,25 @@ void saveUser() async {
     'ID': globals.iD,
     'Age': globals.age,
     'Gender': globals.gender,
+    'Grade': globals.grade,
   });
 }
 
 void saveResults1() async {
+  Duration smallTime = const Duration(seconds: 5);
+  Duration bigTime = const Duration(seconds: 10);
   String temp = "";
   List<Map<String, dynamic>> answers = [];
   for (int i = 0; i < (globals.roundSides).length; i++) {
+    if (globals.times[i] <= smallTime && globals.roundCorrectness[i]) {
+      globals.fastML++;
+    } else if (globals.times[i] > smallTime &&
+        globals.times[i] <= bigTime &&
+        globals.roundCorrectness[i]) {
+      globals.mediumML++;
+    } else if (globals.times[i] > bigTime && globals.roundCorrectness[i]) {
+      globals.slowML++;
+    }
     if (globals.roundSides[i] == 0) {
       temp = "left";
     } else {
@@ -30,16 +43,30 @@ void saveResults1() async {
     });
   }
 
-  await FirebaseFirestore.instance.collection('first_exam').add({
-    'ID': globals.iD,
-    'Total_correct_answers': globals.score1,
-    'Answers': answers,
-  });
+  if (globals.isCheckedGrade) {
+    await FirebaseFirestore.instance.collection('first_exam').add({
+      'ID': globals.iD,
+      'Total_correct_answers': globals.score1,
+      'Answers': answers,
+    });
+  }
+  return;
 }
 
 void saveResults2() async {
+  Duration smallTime = const Duration(seconds: 5);
+  Duration bigTime = const Duration(seconds: 10);
   List<Map<String, dynamic>> answers = [];
   for (int i = 0; i < (globals.roundsBool).length; i++) {
+    if (globals.rountimes[i] <= smallTime && globals.roundsBool[i]) {
+      globals.fastML++;
+    } else if (globals.rountimes[i] > smallTime &&
+        globals.rountimes[i] <= bigTime &&
+        globals.roundsBool[i]) {
+      globals.mediumML++;
+    } else if (globals.rountimes[i] > bigTime && globals.roundsBool[i]) {
+      globals.slowML++;
+    }
     answers.add({
       "round": i + 1,
       "time_until_choose_the_object": (globals.rountimes[i]).toString(),
@@ -47,16 +74,30 @@ void saveResults2() async {
     });
   }
 
-  await FirebaseFirestore.instance.collection('second_exam').add({
-    'ID': globals.iD,
-    'Total_correct_answers': globals.score2,
-    'answers': answers,
-  });
+  if (globals.isCheckedGrade) {
+    await FirebaseFirestore.instance.collection('second_exam').add({
+      'ID': globals.iD,
+      'Total_correct_answers': globals.score2,
+      'answers': answers,
+    });
+  }
+  return;
 }
 
 void saveResults3() async {
+  Duration smallTime = const Duration(seconds: 5);
+  Duration bigTime = const Duration(seconds: 10);
   List<Map<String, dynamic>> answers = [];
   for (int i = 0; i < (globals.roundsBoolFA).length; i++) {
+    if (globals.roundTimesFA[i] <= smallTime && globals.roundsBoolFA[i]) {
+      globals.fastML++;
+    } else if (globals.roundTimesFA[i] > smallTime &&
+        globals.roundTimesFA[i] <= bigTime &&
+        globals.roundsBoolFA[i]) {
+      globals.mediumML++;
+    } else if (globals.roundTimesFA[i] > bigTime && globals.roundsBoolFA[i]) {
+      globals.slowML++;
+    }
     answers.add({
       "round": i + 1,
       "time_until_choose_the_object": (globals.roundTimesFA[i]).toString(),
@@ -64,17 +105,30 @@ void saveResults3() async {
     });
   }
 
-  await FirebaseFirestore.instance.collection('third_exam').add({
-    'ID': globals.iD,
-    'Total_correct_answers': globals.score3,
-    'answers': answers,
-  });
-  print('Done');
+  if (globals.isCheckedGrade) {
+    await FirebaseFirestore.instance.collection('third_exam').add({
+      'ID': globals.iD,
+      'Total_correct_answers': globals.score3,
+      'answers': answers,
+    });
+  }
+  return;
 }
 
 void saveResults4() async {
+  Duration smallTime = const Duration(seconds: 5);
+  Duration bigTime = const Duration(seconds: 10);
   List<Map<String, dynamic>> answers = [];
   for (int i = 0; i < (globals.roundsBoolNC).length; i++) {
+    if (globals.roundsTimesNC[i] <= smallTime && globals.roundsBoolNC[i]) {
+      globals.fastML++;
+    } else if (globals.roundsTimesNC[i] > smallTime &&
+        globals.roundsTimesNC[i] <= bigTime &&
+        globals.roundsBoolNC[i]) {
+      globals.mediumML++;
+    } else if (globals.roundsTimesNC[i] > bigTime && globals.roundsBoolNC[i]) {
+      globals.slowML++;
+    }
     answers.add({
       "round": i + 1,
       "time_until_choose_the_object": (globals.roundsTimesNC[i]).toString(),
@@ -82,11 +136,46 @@ void saveResults4() async {
     });
   }
 
-  await FirebaseFirestore.instance.collection('fourth_exam').add({
-    'ID': globals.iD,
-    'Total_correct_answers': globals.score4,
-    'answers': answers,
-  });
+  if (globals.isCheckedGrade) {
+    await FirebaseFirestore.instance.collection('fourth_exam').add({
+      'ID': globals.iD,
+      'Total_correct_answers': globals.score4,
+      'answers': answers,
+    });
+  }
+  return;
+}
+
+void saveMLResults() async {
+  int correctAnswers =
+      globals.score1 + globals.score2 + globals.score3 + globals.score4;
+  if (globals.isCheckedGrade) {
+    await FirebaseFirestore.instance.collection('trainML').add({
+      'Name': globals.name,
+      'ID': globals.iD,
+      'Age': globals.age,
+      'Gender': globals.gender,
+      'Total_correct_answers': correctAnswers,
+      'Total_wrong_answers': globals.wrongAnswersML,
+      'fast': globals.fastML,
+      'medium': globals.mediumML,
+      'slow': globals.slowML,
+      'grade': globals.grade,
+    });
+  } else {
+    await FirebaseFirestore.instance.collection('predictML').add({
+      'Name': globals.name,
+      'ID': globals.iD,
+      'Age': globals.age,
+      'Gender': globals.gender,
+      'Total_correct_answers': correctAnswers,
+      'Total_wrong_answers': globals.wrongAnswersML,
+      'fast': globals.fastML,
+      'medium': globals.mediumML,
+      'slow': globals.slowML,
+      // 'grade': globals.grade,
+    });
+  }
 }
 
 Future<String> createFolder() async {
@@ -173,6 +262,64 @@ createThirdExam() async {
   //     mode: FileMode.append);
 }
 
+Future<void> exportDataToCSV() async {
+  try {
+    // Fetch data from Firestore
+    List<Map<String, dynamic>> data = await fetchDataFromFirestore();
+
+    // Convert data to CSV format
+    String csvData = convertToCSV(data);
+
+    // Save CSV file
+    await saveCSVFile(csvData, 'data.csv');
+  } catch (e) {
+    print('Error: $e');
+  }
+}
+
+Future<List<Map<String, dynamic>>> fetchDataFromFirestore() async {
+  List<Map<String, dynamic>> dataList = [];
+
+  QuerySnapshot querySnapshot =
+      await FirebaseFirestore.instance.collection('ML').get();
+
+  for (var doc in querySnapshot.docs) {
+    dataList.add(doc.data() as Map<String, dynamic>);
+  }
+
+  return dataList;
+}
+
+String convertToCSV(List<Map<String, dynamic>> data) {
+  List<List<dynamic>> rows = [];
+
+  // Add the headers
+  if (data.isNotEmpty) {
+    rows.add(data[0].keys.toList());
+  }
+
+  // Add the data
+  for (var map in data) {
+    rows.add(map.values.toList());
+  }
+
+  return const ListToCsvConverter().convert(rows);
+}
+
+Future<void> saveCSVFile(String csvData, String fileName) async {
+  final directory = (Platform.isAndroid
+      ? await getExternalStorageDirectory()
+      : Platform.isIOS
+          ? await getApplicationSupportDirectory()
+          : await getApplicationDocumentsDirectory());
+  // final directory = await getApplicationDocumentsDirectory();
+  final path = '${directory!.path}/$fileName';
+  final file = File(path);
+
+  await file.writeAsString(csvData);
+  print('File saved at $path');
+}
+
 void reset() {
   // info
   globals.name = '';
@@ -180,8 +327,10 @@ void reset() {
   globals.age = '';
   globals.gender = '';
   globals.data = [];
+  globals.grade = '';
+  globals.isCheckedGrade = false;
 
-// first exam
+  // first exam
   globals.sideTemp = -1;
   globals.roundSides = [];
   globals.roundsTimes = [];
@@ -192,7 +341,7 @@ void reset() {
   globals.time1 = 60;
   globals.numOfWrongAnswers1 = 2;
 
-// second exam
+  // second exam
   globals.score2 = 0;
   globals.roundsBool = [];
   globals.rountimes = [];
@@ -204,7 +353,7 @@ void reset() {
   globals.leftOrRight = 0;
   globals.numClickOnRight = 0;
 
-// third exam
+  // third exam
   globals.versionFA = 1;
   globals.score3 = 0;
   globals.time3 = const Duration(seconds: 0);
@@ -213,7 +362,7 @@ void reset() {
 
   globals.gameNumber = 5;
 
-//fourth exam
+  //fourth exam
   globals.score4 = 0;
   globals.time4 = const Duration(seconds: 0);
 
@@ -223,4 +372,11 @@ void reset() {
 
   globals.numOfGames4 = 5;
   globals.versionNC = 1;
+
+  // ML
+  globals.correctAnswersML = 0;
+  globals.wrongAnswersML = 0;
+  globals.fastML = 0;
+  globals.mediumML = 0;
+  globals.slowML = 0;
 }

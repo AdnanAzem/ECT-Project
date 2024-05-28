@@ -63,8 +63,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                   child: GFIconButton(
                     onPressed: () {
                       if (the_answer == 0) {
-                        gotcorrectanswer();
-                        if (globals.score4 <= globals.numOfGames4) {
+                        if (globals.numOfGames4 > 0) {
+                          gotcorrectanswer();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -78,7 +78,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                           );
                         }
                       } else {
-                        if (globals.numOfWrongAnswers4 > 0) {
+                        // if (globals.numOfWrongAnswers4 > 0) {
+                        if (globals.numOfGames4 > 0) {
                           gotwronganswer();
                           Navigator.push(
                             context,
@@ -128,8 +129,9 @@ class _NumberComparisonState extends State<NumberComparison> {
                   child: GFIconButton(
                     onPressed: () {
                       if (the_answer == 1) {
-                        gotcorrectanswer();
-                        if (globals.score4 <= globals.numOfGames4) {
+                        if (globals.numOfGames4 > 0) {
+                          gotcorrectanswer();
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -143,7 +145,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                           );
                         }
                       } else {
-                        if (globals.numOfWrongAnswers4 > 0) {
+                        // if (globals.numOfWrongAnswers4 > 0) {
+                        if (globals.numOfGames4 > 0) {
                           gotwronganswer();
                           Navigator.push(
                             context,
@@ -193,8 +196,9 @@ class _NumberComparisonState extends State<NumberComparison> {
                   child: GFIconButton(
                     onPressed: () {
                       if (the_answer == 2) {
-                        gotcorrectanswer();
-                        if (globals.score4 <= globals.numOfGames4) {
+                        if (globals.numOfGames4 > 0) {
+                          gotcorrectanswer();
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -208,7 +212,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                           );
                         }
                       } else {
-                        if (globals.numOfWrongAnswers4 > 0) {
+                        // if (globals.numOfWrongAnswers4 > 0) {
+                        if (globals.numOfGames4 > 0) {
                           gotwronganswer();
                           Navigator.push(
                             context,
@@ -258,8 +263,9 @@ class _NumberComparisonState extends State<NumberComparison> {
                   child: GFIconButton(
                     onPressed: () {
                       if (the_answer == 3) {
-                        gotcorrectanswer();
-                        if (globals.score4 <= globals.numOfGames4) {
+                        if (globals.numOfGames4 > 0) {
+                          gotcorrectanswer();
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -273,7 +279,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                           );
                         }
                       } else {
-                        if (globals.numOfWrongAnswers4 > 0) {
+                        // if (globals.numOfWrongAnswers4 > 0) {
+                        if (globals.numOfGames4 > 0) {
                           gotwronganswer();
                           Navigator.push(
                             context,
@@ -323,8 +330,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                   child: GFIconButton(
                     onPressed: () {
                       if (the_answer == 4) {
-                        gotcorrectanswer();
-                        if (globals.score4 <= globals.numOfGames4) {
+                        if (globals.numOfGames4 > 0) {
+                          gotcorrectanswer();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -338,7 +345,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                           );
                         }
                       } else {
-                        if (globals.numOfWrongAnswers4 > 0) {
+                        // if (globals.numOfWrongAnswers4 > 0) {
+                        if (globals.numOfGames4 > 0) {
                           gotwronganswer();
                           Navigator.push(
                             context,
@@ -403,7 +411,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                           );
                         }
                       } else {
-                        if (globals.numOfWrongAnswers4 > 0) {
+                        // if (globals.numOfWrongAnswers4 > 0) {
+                        if (globals.numOfGames4 > 0) {
                           gotwronganswer();
                           Navigator.push(
                             context,
@@ -460,7 +469,8 @@ class _NumberComparisonState extends State<NumberComparison> {
                               builder: (context) => const NumberComparison()),
                         );
                       } else {
-                        if (globals.numOfWrongAnswers4 > 0) {
+                        // if (globals.numOfWrongAnswers4 > 0) {
+                        if (globals.numOfGames4 > 0) {
                           gotwronganswer();
                           Navigator.push(
                             context,

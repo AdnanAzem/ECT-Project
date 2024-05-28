@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 whenChooseButton1() {
   globals.score1++;
+  globals.stopwatch.stop();
+  globals.time = globals.stopwatch.elapsed;
+  globals.times.add(globals.time);
+  globals.numOfGames1--;
   globals.roundCorrectness.add(true);
   globals.time1 = (globals.time1 / 2);
   globals.roundsTimes.add(globals.time1);
@@ -12,22 +16,37 @@ whenChooseButton1() {
 
 whenChooseButton2() {
   globals.time1 = (globals.time1 + (globals.time1 / 4));
+  globals.stopwatch.stop();
+  globals.time = globals.stopwatch.elapsed;
+  globals.times.add(globals.time);
   globals.roundsTimes.add(globals.time1);
   globals.roundCorrectness.add(false);
   print('wrong:' + globals.time1.toString());
-  globals.numOfWrongAnswers1--;
+  // globals.numOfWrongAnswers1--;
+  globals.numOfGames1--;
+  globals.wrongAnswersML++;
 }
 
 whenUpdate() {
   globals.roundCorrectness.add(false);
   globals.roundsTimes.add(globals.time1);
+  globals.stopwatch.stop();
+  globals.time = globals.stopwatch.elapsed;
+  globals.times.add(globals.time);
+  globals.numOfGames1--;
+  globals.wrongAnswersML++;
 }
 
 whenChooseButtonDNS() {
   globals.time1 = (globals.time1 + (globals.time1 / 4));
+  globals.stopwatch.stop();
+  globals.time = globals.stopwatch.elapsed;
+  globals.times.add(globals.time);
   globals.roundsTimes.add(globals.time1);
   globals.roundCorrectness.add(false);
-  globals.numOfWrongAnswers1--;
+  globals.numOfGames1--;
+  // globals.numOfWrongAnswers1--;
+  globals.wrongAnswersML++;
 }
 
 CustomPainter chooseSide() {

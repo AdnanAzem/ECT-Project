@@ -1,4 +1,3 @@
-
 import 'package:ect/Controller/results.dart';
 import 'package:flutter/material.dart';
 import 'package:ect/View/first_exam/first_exam_explanation_screen.dart';
@@ -58,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 15),
+                const SizedBox(height: 10),
                 Text(
                   "Login page",
                   textAlign: TextAlign.center,
@@ -73,13 +72,13 @@ class _LoginPageState extends State<LoginPage> {
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ],
-                    fontSize: 90,
+                    fontSize: 75,
                     fontFamily: 'Alkatra',
                   ),
                 ),
                 const SizedBox(height: 10),
                 Container(
-                  height: 460,
+                  height: 500,
                   width: 400,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 167, 212, 249)
@@ -100,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 10),
                       SizedBox(
                         width: 350,
                         child: TextFormField(
@@ -123,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 10),
                       SizedBox(
                         width: 350,
                         child: TextFormField(
@@ -148,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 10),
                       SizedBox(
                         width: 350,
                         child: TextFormField(
@@ -171,8 +170,9 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 10),
                       SizedBox(
+                        height: 30,
                         width: 350,
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -180,7 +180,14 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Expanded(
                               child: ListTile(
-                                title: const Text('male'),
+                                title: const Text(
+                                  'male',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Alkatra',
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 leading: Radio(
                                   value: globals.genderList[0],
                                   groupValue: globals.gender,
@@ -196,7 +203,14 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             Expanded(
                               child: ListTile(
-                                title: const Text('female'),
+                                title: const Text(
+                                  'female',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Alkatra',
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 leading: Radio(
                                   value: globals.genderList[1],
                                   groupValue: globals.gender,
@@ -212,25 +226,58 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ],
                         ),
-                        // child: TextFormField(
-                        //   decoration: const InputDecoration(
-                        //     border: OutlineInputBorder(),
-                        //     hintText: 'Please enter your gender',
-                        //     hintStyle: TextStyle(
-                        //         color: Colors.black, fontFamily: 'Alkatra'),
-                        //   ),
-                        //   validator: (temp4) {
-                        //     if (temp4!.isEmpty) {
-                        //       return "Gender Required";
-                        //     }
-                        //     return null;
-                        //   },
-                        //   onChanged: (value4) {
-                        //     globals.gender = value4;
-                        //   },
-                        // ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Checkbox(
+                            shape: const CircleBorder(),
+                            value: globals.isCheckedGrade,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                globals.isCheckedGrade = value ?? false;
+                              });
+                            },
+                          ),
+                          const SizedBox(height: 10),
+                          const Text(
+                            'Have a Pshychometry grade?',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Alkatra',
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (globals.isCheckedGrade)
+                        SizedBox(
+                          width: 250,
+                          child: TextFormField(
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Please enter your grade',
+                              hintStyle: TextStyle(
+                                  color: Colors.black, fontFamily: 'Alkatra'),
+                            ),
+                            validator: (temp) {
+                              if (temp!.isEmpty) {
+                                return "grade Required";
+                              } else if (!(numbers.hasMatch(temp))) {
+                                return "Only numeric values are allowed in the age field";
+                              } else if (int.parse(temp) <= 400 ||
+                                  int.parse(temp) >= 800) {
+                                return "grade must be between 400 & 800";
+                              }
+                              return null;
+                            },
+                            onChanged: (value) {
+                              globals.grade = value;
+                            },
+                          ),
+                        ),
+                      const SizedBox(height: 10),
                       SizedBox(
                         child: TextButton(
                           onPressed: () async {
@@ -241,8 +288,9 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const FirstExplanationPage()),
+                                  builder: (context) =>
+                                      const FirstExplanationPage(),
+                                ),
                               );
                             }
                           },

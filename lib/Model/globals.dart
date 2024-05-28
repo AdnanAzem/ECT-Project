@@ -12,6 +12,8 @@ String name = '';
 String iD = '';
 String age = '';
 String gender = '';
+String grade = '';
+bool isCheckedGrade = false;
 List<List<dynamic>> data = [];
 List<String> genderList = ['male', 'female'];
 
@@ -25,6 +27,9 @@ int score1 = 0; // num of correct answers first exam.
 double init = 60;
 double time1 = 60; // milliseconds.
 int numOfWrongAnswers1 = 2;
+int numOfGames1 = 9;
+Duration time = const Duration(seconds: 0);
+List<Duration> times = [];
 
 // second exam
 int score2 = 0; // num of correct answers second exam.
@@ -32,7 +37,8 @@ List<bool> roundsBool = []; // correctness of the round.
 List<Duration> rountimes = [];
 int gamesTimes = 0;
 int numOfWrongAnswers2 = 1; // num of wrong answers before ending second exam.
-int numOfGames = 5; // num of games before ending second exam (correct answers).
+int numOfGames =
+    10; // num of games before ending second exam (correct answers).
 Duration time2 = const Duration(
     seconds:
         0); // the time passed from when the student saw the cards until he pressed a button.
@@ -54,7 +60,7 @@ List<Duration> roundTimesFA = [];
 List<bool> roundsBoolFA = []; // correctness of the round.
 int numOfWrongAnswers3 = 1; // num of wrong answers before ending third exam.
 
-int gameNumber = 5; // num of games before ending third exam (correct answers).
+int gameNumber = 10; // num of games before ending third exam.
 
 //fourth exam
 int score4 = 0; // num of correct answers forth exam.
@@ -65,7 +71,7 @@ List<bool> roundsBoolNC = []; // correctness of the round.
 int numOfWrongAnswers4 = 1; // num of wrong answers before ending fourth exam.
 
 int numOfGames4 =
-    5; // num of games before ending fourth exam (correct answers).
+    9; // num of games before ending fourth exam (correct answers).
 int versionNC = 1; // Number Comprision (NC) game version 1 or 2.
 
 // setting bar
@@ -87,3 +93,19 @@ int drop8 = 1; // versionFA in third exam
 int drop9 = 5; // numOfGames4 in fourth exam
 int drop10 = 1; // numOfWrongAnswers4 in fourth exam
 int drop11 = 1; // versionNC in fourth exam
+
+// machine learning variables
+int correctAnswersML = 0;
+int wrongAnswersML = 0;
+int fastML = 0; // correct answer less than 5 seconds
+int mediumML = 0; // correct answer between 5 - 10 seconds
+int slowML = 0; // correct answer bigger than 10 seconds
+// int predictGrade = 0; // the grade of pshycometry exam
+
+// predict machine learning
+int predCorrect = 0;
+int predWrong = 0;
+int predFast = 0;
+int predMedium = 0;
+int predSlow = 0;
+int predGrade = 0;

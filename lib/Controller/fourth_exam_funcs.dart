@@ -85,11 +85,14 @@ gotwronganswer() {
   globals.roundsTimesNC.add(globals.time4);
   globals.roundsBoolNC.add(false);
   print('wrong:' + globals.time4.toString());
-  globals.numOfWrongAnswers4--;
+  // globals.numOfWrongAnswers4--;
+  globals.numOfGames4--;
+  globals.wrongAnswersML++;
   //Get.offAll(const NumberComparison());
 }
 
 whenUpdate4() {
   globals.roundsTimesNC.add(globals.time4);
   globals.roundsBoolNC.add(false);
+  globals.wrongAnswersML++;
 }
