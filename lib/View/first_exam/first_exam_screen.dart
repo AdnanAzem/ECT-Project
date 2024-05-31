@@ -111,7 +111,8 @@ class _Sides extends State<Sides> {
                       TextButton(
                         onPressed: () {
                           globals.click++;
-                          if (globals.sideTemp == 0 && globals.numOfGames1 > 0) {
+                          if (globals.sideTemp == 0 &&
+                              globals.numOfGames1 > 0) {
                             whenChooseButton1();
                             Navigator.push(
                               context,
@@ -228,7 +229,8 @@ class _Sides extends State<Sides> {
                       TextButton(
                         onPressed: () {
                           globals.click++;
-                          if (globals.sideTemp == 1 && globals.numOfGames1 > 0) {
+                          if (globals.sideTemp == 1 &&
+                              globals.numOfGames1 > 0) {
                             whenChooseButton1();
                             Navigator.push(
                               context,

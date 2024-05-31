@@ -33,7 +33,7 @@ whenUpdate() {
   globals.stopwatch.stop();
   globals.time = globals.stopwatch.elapsed;
   globals.times.add(globals.time);
-  globals.numOfGames1--;
+  // globals.numOfGames1--;
   globals.wrongAnswersML++;
 }
 
