@@ -340,6 +340,8 @@ void reset() {
   globals.init = 60;
   globals.time1 = 60;
   globals.numOfWrongAnswers1 = 2;
+  globals.numOfGames1 = 9;
+  globals.times = [];
 
   // second exam
   globals.score2 = 0;
@@ -347,20 +349,22 @@ void reset() {
   globals.rountimes = [];
   globals.gamesTimes = 0;
   globals.numOfWrongAnswers2 = 1;
-  globals.numOfGames = 5;
+  globals.numOfGames = 10;
   globals.time2 = const Duration(seconds: 0);
   globals.version = 1;
   globals.leftOrRight = 0;
   globals.numClickOnRight = 0;
+  
 
   // third exam
+  globals.gameTimes3 = 0;
   globals.versionFA = 1;
   globals.score3 = 0;
   globals.time3 = const Duration(seconds: 0);
   globals.roundsBoolFA = [];
   globals.numOfWrongAnswers3 = 1;
 
-  globals.gameNumber = 5;
+  globals.gameNumber = 10;
 
   //fourth exam
   globals.score4 = 0;
@@ -370,7 +374,7 @@ void reset() {
   globals.roundsBoolNC = [];
   globals.numOfWrongAnswers4 = 1;
 
-  globals.numOfGames4 = 5;
+  globals.numOfGames4 = 9;
   globals.versionNC = 1;
 
   // ML
