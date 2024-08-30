@@ -7,7 +7,9 @@ The application saves the participant's data and analyzes the results.
 - [ECT Project](#ect-project)
   - [First Exam](#first-exam)
   - [Second Exam: Double game](#second-exam-double-game)
-  - [Application outputs](#application-outputs)
+  - [Third Exam: Finding the A's game](#third-exam-FA-game)
+  - [Fourth Exam: Number Copmresion game](#fourth-exam-NC-game)
+
 
 
 ## First Exam
@@ -44,8 +46,23 @@ In each round we save identification time.
 
 ![](assets/images/SecondExam.png)
 
-## Application outputs
+## Third Exam: Finding the A's game
 
-As soon as the user completes all the exams, the application creates a folder whose name is the user's ID, containing four files that include user information and their exam results.<br />
+”Finding A’s” test is designed to measure the perceptual speed (PS) of a participant in
+locating the letter ’a’ in presented words. Perceptual speed refers to the ability to quickly
+and accurately identify and process visual stimuli.
 
-![](assets/images/folder.png)
+
+![](assets/images/FindingAExample.png)
+
+
+## Fourth Exam: Number Copmresion game
+
+”Find the same digits”, or the ”Number Comparison” test (NC), is designed to assess how
+quickly a participant can compare two numbers and determine whether or not they are
+the same. The difficulty of the test is manipulated by varying the number of digits in each
+number and the number of digits that participants need to compare before identifying
+the first differing digit.
+
+![](assets/images/FourthExam.png)
+
