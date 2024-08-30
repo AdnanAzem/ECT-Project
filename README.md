@@ -7,7 +7,7 @@ The application saves the participant's data and analyzes the results.
 - [ECT Project](#ect-project)
   - [First Exam](#first-exam)
   - [Second Exam: Double game](#second-exam-double-game)
-  - [Third Exam: Finding the A's game](#third-exam-finding-the-a's-game)
+  - [Third Exam: Finding the A's game](#third-exam-finding-the-a-game)
   - [Fourth Exam: Number Comparison game](#fourth-exam-number-comparison-game)
 
 
@@ -46,7 +46,7 @@ In each round we save identification time.
 
 ![](assets/images/SecondExam.png)
 
-## Third Exam: Finding the A's game
+## Third Exam: Finding the A game
 
 ”Finding A’s” test is designed to measure the perceptual speed (PS) of a participant in
 locating the letter ’a’ in presented words. Perceptual speed refers to the ability to quickly
