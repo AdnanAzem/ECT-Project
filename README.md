@@ -8,7 +8,7 @@ The application saves the participant's data and analyzes the results.
   - [First Exam](#first-exam)
   - [Second Exam: Double game](#second-exam-double-game)
   - [Third Exam: Finding the A's game](#third-exam-finding-the-a's-game)
-  - [Fourth Exam: Number Copmresion game](#fourth-exam-number-compresion-game)
+  - [Fourth Exam: Number Comparison game](#fourth-exam-number-comparison-game)
 
 
 
@@ -56,7 +56,7 @@ and accurately identify and process visual stimuli.
 ![](assets/images/FindingAExample.png)
 
 
-## Fourth Exam: Number Copmresion game
+## Fourth Exam: Number Comparison game
 
 ”Find the same digits”, or the ”Number Comparison” test (NC), is designed to assess how
 quickly a participant can compare two numbers and determine whether or not they are
