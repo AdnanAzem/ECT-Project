@@ -7,8 +7,8 @@ The application saves the participant's data and analyzes the results.
 - [ECT Project](#ect-project)
   - [First Exam](#first-exam)
   - [Second Exam: Double game](#second-exam-double-game)
-  - [Third Exam: Finding the A's game](#third-exam-FA-game)
-  - [Fourth Exam: Number Copmresion game](#fourth-exam-NC-game)
+  - [Third Exam: Finding the A's game](#third-exam-Finding-the-A's-game)
+  - [Fourth Exam: Number Copmresion game](#fourth-exam-Number-Compresion-game)
 
 
 
