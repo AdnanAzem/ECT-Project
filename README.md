@@ -1,8 +1,27 @@
 # ECT Project
 
 A flutter application that will be used to diagnose students and analyze data.<br />
-This application consists of three thinking exercises; each exercise tests the student's abilities from different aspects.<br />
+This application consists of four thinking exercises; each exercise tests the student's abilities from different aspects.<br />
 The application saves the participant's data and analyzes the results.
+
+# Overview
+The Elementary Cognitive Tasks System study highlights the complex relationship between cognitive task performance and academic success. By examining the role of response times in various cognitive tasks, the study provides a
+deeper understanding of how different aspects of cognition contribute to learning and academic achievement. Furthermore, the study’s focus on technological
+variability offers valuable insights into how digital platforms may influence cognitive assessments, paving the way for more equitable and effective educational
+practices.
+
+# Objective
+This project seeks to explore the correlation between response times in specific ECTs
+and students’ academic performance. By analyzing the data collected from these tasks,
+the study aims to draw meaningful conclusions that can contribute to educational assessments.
+
+
+# What is Elementary Cognitive Tasks?
+Elementary Cognitive Tasks (ECTs) are fundamental tasks used to measure basic cognitive processes such as perception, attention, memory, and decision-making. These tasks
+are any of a range of basic tasks which require only a small number of mental processes
+and which have easily specified correct outcomes so they designed to be simple and quick
+to administer, often involving basic stimuli like letters, numbers, or shapes.
+
 
 - [ECT Project](#ect-project)
   - [First Exam](#first-exam)
@@ -10,7 +29,8 @@ The application saves the participant's data and analyzes the results.
   - [Third Exam: Finding the A's game](#third-exam-finding-the-a-game)
   - [Fourth Exam: Number Comparison game](#fourth-exam-number-comparison-game)
 
-
+# Task Descriptions
+In order to examine the theory mentioned above we have created 4 elementary cognitive tasks by writing the code in flutter using dart language, and these tasks are:
 
 ## First Exam
 
